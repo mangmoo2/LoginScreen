@@ -7,6 +7,8 @@ namespace LoginScreen
             InitializeComponent();
         }
 
+        int failCount = 0; // 실패 횟수 저장
+
         private void txtId_TextChanged(object sender, EventArgs e)
         {
 
@@ -17,14 +19,27 @@ namespace LoginScreen
             string inputId = txtId.Text;          // 아이디 저장
             string inputPw = txtPw.Text;          // 비밀번호 저장
 
-            if (inputId == "mangmoo2" && inputPw == "1234")      // 논리연산자&& 사용
+            if (!IsValidInput(inputId, inputPw)) { lblError.Visible = true; return; } // 검사 
+
+            if (inputId == "mangmoo2" && inputPw == "1234!")      // 논리연산자&& 사용
             {
                 lblError.Visible = false; // 에러 메시지 숨김
+                failCount = 0; // 성공 시 횟수 초기화
                 MessageBox.Show("로그인에 성공하였습니다."); // 로그인 성공
             }
             else
             {
+                failCount++; //실패카운트
                 lblError.Visible = true;  // messageBox 대신 에러 메세지
+
+                if (failCount >= 3)
+                {
+                    Login.Enabled = false; // 버튼 비활성화
+                    lblError.Text = "3회 실패! 10초 후 재시도하세요.";
+
+                    // 타이머 실행 (아래 3단계 참고)
+                    LockTimer.Start();
+                }
             }
         }
 
@@ -108,6 +123,36 @@ namespace LoginScreen
                     txtPw.UseSystemPasswordChar = true; // 아니면 가리기 
                 }
             }
+        }
+
+        private bool IsValidInput(string id, string pw)
+        {
+            if (id.Contains(" ") || id == "ID") //아이디에 공백이 있는지 체크
+            {
+                lblError.Text = "아이디에 공백을 넣을 수 없습니다.";
+                return false;
+            }
+
+            if (!pw.Contains("!"))
+            {
+                lblError.Text = "비밀번호에 '!'가 반드시 포함되어야 합니다."; // 비밀번호에 '!'가 포함되어야 함
+                return false;
+            }
+
+            return true;
+        }
+
+        private void LockTimer_Tick(object sender, EventArgs e)
+        {
+            LockTimer.Stop();     // 타이머 중지
+            Login.Enabled = true; // 버튼 다시 활성화
+            failCount = 0;        // 횟수 초기화
+            lblError.Text = "다시 시도할 수 있습니다.";
+        }
+
+        private void LockTimer_Tick_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

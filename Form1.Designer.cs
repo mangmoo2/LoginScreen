@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             Login = new Button();
             label1 = new Label();
             txtId = new TextBox();
@@ -37,6 +38,7 @@
             lblError = new Label();
             Clear = new Button();
             ShowPw = new CheckBox();
+            LockTimer = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // Login
@@ -146,6 +148,11 @@
             ShowPw.UseVisualStyleBackColor = true;
             ShowPw.CheckedChanged += checkBox1_CheckedChanged;
             // 
+            // LockTimer
+            // 
+            LockTimer.Interval = 10000;
+            LockTimer.Tick += LockTimer_Tick;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -179,5 +186,6 @@
         private Label lblError;
         private Button Clear;
         private CheckBox ShowPw;
+        private System.Windows.Forms.Timer LockTimer;
     }
 }
