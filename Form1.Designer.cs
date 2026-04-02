@@ -28,48 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
+            Login = new Button();
             label1 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            txtId = new TextBox();
+            txtPw = new TextBox();
             SuspendLayout();
             // 
-            // button1
+            // Login
             // 
-            button1.BackColor = Color.MintCream;
-            button1.Font = new Font("맑은 고딕", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 129);
-            button1.Location = new Point(168, 281);
-            button1.Name = "button1";
-            button1.Size = new Size(173, 44);
-            button1.TabIndex = 0;
-            button1.Text = "로그인";
-            button1.UseVisualStyleBackColor = false;
+            Login.BackColor = Color.MintCream;
+            Login.Font = new Font("맑은 고딕", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 129);
+            Login.Location = new Point(168, 281);
+            Login.Name = "Login";
+            Login.Size = new Size(173, 44);
+            Login.TabIndex = 0;
+            Login.Text = "로그인";
+            Login.UseVisualStyleBackColor = false;
+            Login.Click += Login_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("맑은 고딕", 36F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            label1.Location = new Point(183, 25);
+            label1.Font = new Font("휴먼둥근헤드라인", 36F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            label1.ForeColor = Color.Salmon;
+            label1.Location = new Point(168, 50);
             label1.Name = "label1";
-            label1.Size = new Size(149, 65);
+            label1.Size = new Size(176, 50);
             label1.TabIndex = 1;
             label1.Text = "Login";
             // 
-            // textBox1
+            // txtId
             // 
-            textBox1.Font = new Font("맑은 고딕", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            textBox1.Location = new Point(126, 154);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(261, 35);
-            textBox1.TabIndex = 2;
+            txtId.Font = new Font("맑은 고딕", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            txtId.ForeColor = SystemColors.ScrollBar;
+            txtId.Location = new Point(126, 154);
+            txtId.Name = "txtId";
+            txtId.Size = new Size(261, 35);
+            txtId.TabIndex = 2;
+            txtId.Text = "아이디";
+            txtId.TextChanged += txtId_TextChanged;
+            txtId.Enter += txtId_Enter;
+            txtId.Leave += txtId_Leave;
             // 
-            // textBox2
+            // txtPw
             // 
-            textBox2.Font = new Font("맑은 고딕", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            textBox2.Location = new Point(126, 212);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(261, 35);
-            textBox2.TabIndex = 3;
+            txtPw.Font = new Font("맑은 고딕", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            txtPw.ForeColor = SystemColors.ScrollBar;
+            txtPw.Location = new Point(126, 212);
+            txtPw.Name = "txtPw";
+            txtPw.Size = new Size(261, 35);
+            txtPw.TabIndex = 3;
+            txtPw.Text = "비밀번호";
+            txtPw.Enter += txtPw_Enter;
+            txtPw.Leave += txtPw_Leave;
             // 
             // Form1
             // 
@@ -77,10 +88,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MistyRose;
             ClientSize = new Size(534, 403);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(txtPw);
+            Controls.Add(txtId);
             Controls.Add(label1);
-            Controls.Add(button1);
+            Controls.Add(Login);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
@@ -89,9 +100,9 @@
 
         #endregion
 
-        private Button button1;
+        private Button Login;
         private Label label1;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox txtId;
+        private TextBox txtPw;
     }
 }
