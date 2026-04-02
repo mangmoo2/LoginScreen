@@ -19,17 +19,18 @@ namespace LoginScreen
 
             if (inputId == "mangmoo2" && inputPw == "1234")      // 논리연산자&& 사용
             {
+                lblError.Visible = false; // 에러 메시지 숨김
                 MessageBox.Show("로그인에 성공하였습니다."); // 로그인 성공
             }
             else
             {
-                MessageBox.Show("아이디 또는 비밀번호가 틀렸습니다.");  // 로그인 실패 
+                lblError.Visible = true;  // messageBox 대신 에러 메세지
             }
         }
 
         private void txtPw_Enter(object sender, EventArgs e) // 비밀번호 검은 점으로 가리기 
         {
-            if (txtPw.Text == "비밀번호") // 처음 회색 비밀번호
+            if (txtPw.Text == "Password") // 처음 회색 비밀번호
             {
                 txtPw.Text = ""; // 글자를 삭제
                 txtPw.ForeColor = Color.Black; // 글자색 검정
@@ -41,7 +42,7 @@ namespace LoginScreen
         {
             if (txtPw.Text == "")
             {
-                txtPw.Text = "비밀번호"; // 다시 비밀번호
+                txtPw.Text = "Password"; // 다시 비밀번호
                 txtPw.ForeColor = Color.Gray; // 다시 회색
                 txtPw.UseSystemPasswordChar = false; // 글자가 보이게
             }
@@ -49,7 +50,7 @@ namespace LoginScreen
 
         private void txtId_Enter(object sender, EventArgs e)
         {
-            if (txtId.Text == "아이디") // 처음 회색 아이디
+            if (txtId.Text == "ID") // 처음 회색 아이디
             {
                 txtId.Text = ""; // 글자를 삭제
                 txtId.ForeColor = Color.Black; // 글자색 검정
@@ -60,9 +61,14 @@ namespace LoginScreen
         {
             if (txtId.Text == "")
             {
-                txtId.Text = "아이디"; // 다시 아이디
+                txtId.Text = "ID"; // 다시 아이디
                 txtId.ForeColor = Color.Gray; // 다시 회색
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
