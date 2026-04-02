@@ -35,6 +35,8 @@
             label2 = new Label();
             label3 = new Label();
             lblError = new Label();
+            Clear = new Button();
+            ShowPw = new CheckBox();
             SuspendLayout();
             // 
             // Login
@@ -72,6 +74,7 @@
             txtId.Text = "ID";
             txtId.TextChanged += txtId_TextChanged;
             txtId.Enter += txtId_Enter;
+            txtId.KeyDown += txtId_KeyDown;
             txtId.Leave += txtId_Leave;
             // 
             // txtPw
@@ -84,6 +87,7 @@
             txtPw.TabIndex = 3;
             txtPw.Text = "Password";
             txtPw.Enter += txtPw_Enter;
+            txtPw.KeyDown += txtPw_KeyDown;
             txtPw.Leave += txtPw_Leave;
             // 
             // label2
@@ -118,12 +122,38 @@
             lblError.Text = "아이디 혹은 비밀번호가 맞지 않습니다";
             lblError.Visible = false;
             // 
+            // Clear
+            // 
+            Clear.BackColor = Color.AntiqueWhite;
+            Clear.Location = new Point(297, 45);
+            Clear.Name = "Clear";
+            Clear.Size = new Size(89, 23);
+            Clear.TabIndex = 7;
+            Clear.Text = "입력 초기화";
+            Clear.UseVisualStyleBackColor = false;
+            Clear.Click += Clear_Click;
+            // 
+            // ShowPw
+            // 
+            ShowPw.AutoSize = true;
+            ShowPw.Font = new Font("맑은 고딕", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 129);
+            ShowPw.ForeColor = Color.LightCoral;
+            ShowPw.Location = new Point(395, 217);
+            ShowPw.Name = "ShowPw";
+            ShowPw.Size = new Size(62, 34);
+            ShowPw.TabIndex = 8;
+            ShowPw.Text = "👁️";
+            ShowPw.UseVisualStyleBackColor = true;
+            ShowPw.CheckedChanged += checkBox1_CheckedChanged;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FloralWhite;
             ClientSize = new Size(534, 403);
+            Controls.Add(ShowPw);
+            Controls.Add(Clear);
             Controls.Add(lblError);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -147,5 +177,7 @@
         private Label label2;
         private Label label3;
         private Label lblError;
+        private Button Clear;
+        private CheckBox ShowPw;
     }
 }

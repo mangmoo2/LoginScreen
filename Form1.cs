@@ -70,5 +70,44 @@ namespace LoginScreen
         {
 
         }
+
+        private void txtId_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) // Enter 키를 누르면
+            {
+                txtPw.Focus(); // 비밀번호 입력창으로 포커스 이동
+            }
+        }
+
+        private void txtPw_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Login_Click(sender, e); // 로그인 버튼 실행
+            }
+        }
+
+        private void Clear_Click(object sender, EventArgs e)
+        {
+            txtId.Text = "";    //아이디 초기화
+            txtPw.Text = "";    //비밀번호 초기화
+            lblError.Visible = false; // 에러 메시지도 숨김
+            txtId.Focus();      //아이디 TestBox로 이동
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ShowPw.Checked)
+            {
+                txtPw.UseSystemPasswordChar = false; // 체크박스가 체크되어 있으면 글자가 보이고
+            }
+            else
+            {
+                if (txtPw.Text != "Password")
+                {
+                    txtPw.UseSystemPasswordChar = true; // 아니면 가리기 
+                }
+            }
+        }
     }
 }
