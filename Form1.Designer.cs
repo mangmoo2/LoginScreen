@@ -28,12 +28,70 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            button1 = new Button();
+            label1 = new Label();
+            textBox1 = new TextBox();
+            textBox2 = new TextBox();
+            SuspendLayout();
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.MintCream;
+            button1.Font = new Font("맑은 고딕", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 129);
+            button1.Location = new Point(168, 281);
+            button1.Name = "button1";
+            button1.Size = new Size(173, 44);
+            button1.TabIndex = 0;
+            button1.Text = "로그인";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("맑은 고딕", 36F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            label1.Location = new Point(183, 25);
+            label1.Name = "label1";
+            label1.Size = new Size(149, 65);
+            label1.TabIndex = 1;
+            label1.Text = "Login";
+            // 
+            // textBox1
+            // 
+            textBox1.Font = new Font("맑은 고딕", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            textBox1.Location = new Point(126, 154);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(261, 35);
+            textBox1.TabIndex = 2;
+            // 
+            // textBox2
+            // 
+            textBox2.Font = new Font("맑은 고딕", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            textBox2.Location = new Point(126, 212);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(261, 35);
+            textBox2.TabIndex = 3;
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackColor = Color.MistyRose;
+            ClientSize = new Size(534, 403);
+            Controls.Add(textBox2);
+            Controls.Add(textBox1);
+            Controls.Add(label1);
+            Controls.Add(button1);
+            Name = "Form1";
             Text = "Form1";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Button button1;
+        private Label label1;
+        private TextBox textBox1;
+        private TextBox textBox2;
     }
 }
